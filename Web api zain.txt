@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+
+namespace WebAPI.Controllers
+{
+
+public class valuecontroller:ApiController
+{
+static List<string> strings= new List<string>()
+{
+  "value0" "value1" "value2"
+};
+//GET api/value
+public IEnumerable<string> Get()
+{
+return strings;
+}
+
+//GET api/value/id
+ 
+public string Get(int id)
+{
+return strings[id];
+}
+//POST api/values
+
+public void Post([FromBody]string val)
+{
+strings.Add(val);
+}
+
+//PUT api/values/id
+
+public void Put(int id, [FromBody]string val)
+{
+strings[id]=val;
+}
+//DELETE api/values/id
+
+public void Delete(int id)
+{
+strings.RemoveAt[id]
+}
+}
